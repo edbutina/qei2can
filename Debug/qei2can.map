@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v18.12.4                    
 ******************************************************************************
->> Linked Sun Feb 16 09:59:39 2020
+>> Linked Wed Feb 19 20:21:13 2020
 
 OUTPUT FILE NAME:   <qei2can.out>
 ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00000361

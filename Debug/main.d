@@ -1,7 +1,7 @@
 # FIXED
 
 main.obj: ../main.c
-main.obj: C:/Users/edwar/workspace_v9/qei2can/Driver/inc/qei_can_specific.h
+main.obj: C:/Users/edwar/workspace_v9/qei2can/Driver/inc/tm4c123gh6pm.h
 main.obj: C:/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdbool.h
 main.obj: C:/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdio.h
 main.obj: C:/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/_ti_config.h
@@ -17,7 +17,7 @@ main.obj: C:/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/machine
 main.obj: C:/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/sys/_stdint.h
 
 ../main.c: 
-C:/Users/edwar/workspace_v9/qei2can/Driver/inc/qei_can_specific.h: 
+C:/Users/edwar/workspace_v9/qei2can/Driver/inc/tm4c123gh6pm.h: 
 C:/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdbool.h: 
 C:/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/stdio.h: 
 C:/ti/ccs930/ccs/tools/compiler/ti-cgt-arm_18.12.4.LTS/include/_ti_config.h: 

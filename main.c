@@ -4,7 +4,8 @@
  * main.c
  */
 
-#include "qei_can_specific.h"
+/*#include "qei_can_specific.h"*/
+#include "tm4c123gh6pm.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdint.h>
