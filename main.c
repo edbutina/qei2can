@@ -12,7 +12,11 @@
 
 void QEI0_Init(void);
 void CAN0_Init(void);
+void UART0_Init(void);
 void wait(void);
+char readChar(void);
+void printChar(char c);
+void printString(char * string);
 
 
 
@@ -22,10 +26,12 @@ int main(void)
 
     QEI0_Init(); /* initialize QEI0 for 500cpr open collector quadrature encoder */
     CAN0_Init();
+    UART0_Init();
 
     while (1){
-        wait();
-        HSE_POS = QEI0_POS_R;
+        printString("Hello world \n\r");
+        /*wait();
+        HSE_POS = QEI0_POS_R;*/
     }
 
 	/*return 0;*/
@@ -67,3 +73,36 @@ void CAN0_Init(){
 
 }
 
+void UART0_Init(){
+    /* U0Rx -> PA0, U0Tx -> PA1 */
+    SYSCTL_RCGCUART_R = (1 << 0); /* run clk gating ctl to enable uart0 */
+    SYSCTL_RCGCGPIO_R |= (1 << 0); /* run clk gating ctl to enable gpio port A */
+    GPIO_PORTA_AFSEL_R = (1 << 1) | (1 << 0); /* allow pins to be set for alternate functionality */
+    GPIO_PORTA_PCTL_R = (1 << 0) | (1 << 4); /* pin mux setting */
+    GPIO_PORTA_DEN_R = (1 << 0) | (1 << 1); /* digital enable */
+
+    UART0_CTL_R &= ~(1 << 0); /* disable UART0 module */
+    UART0_IBRD_R = 104; /* baud rate setting */
+    UART0_FBRD_R = 11; /* franctional setting */
+    UART0_LCRH_R = (0x3 << 5); /* 8-bit, no parity, 1-stop bit */
+    UART0_CC_R = 0x0; /* UART clock source */
+    UART0_CTL_R = (1 << 0) | (1 << 8) | (1 << 9); /* enable UART */
+}
+
+char readChar(void){
+    char c;
+    while((UART0_FR_R & (1 << 4)) != 0);
+    c = UART0_DR_R;
+    return c;
+}
+
+void printChar(char c){
+    while((UART0_FR_R & (1 << 5)) != 0);
+    UART0_DR_R = c;
+}
+
+void printString(char * string){
+    while(*string){
+        printChar(*(string++));
+    }
+}
