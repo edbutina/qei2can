@@ -62,5 +62,8 @@ void CAN0_Init(){
 
     GPIO_PORTB_AFSEL_R = 0x30;
     GPIO_PORTB_PCTL_R = 0x880000; /* pb5 (8) and pb4 (8) */
+
+    CAN0_CTL_R = (1 << 0); /* initialize can0 module */
+
 }
 
